@@ -1,5 +1,5 @@
-Learn Go Languange
-==================
+Learn Go Language
+=================
 
 This project contains my musings learning Go. There will not be anything
 fancy of note here. Just fumblings of a Java programmer figuring out how

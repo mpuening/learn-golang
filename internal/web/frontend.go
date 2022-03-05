@@ -3,9 +3,13 @@ package web
 import (
 	"strconv"
 
+	logger "learn-golang/internal/logger"
+
 	"github.com/gin-gonic/contrib/static"
 	"github.com/gin-gonic/gin"
 )
+
+var LOG *logger.Logger = logger.NewLogger("web")
 
 type WebBuilder struct {
 	Mode            string
@@ -45,5 +49,7 @@ func (this Web) API() *gin.RouterGroup {
 }
 
 func (this Web) Run() {
-	this.router.Run(":" + strconv.Itoa(this.port))
+	port := ":" + strconv.Itoa(this.port)
+	LOG.Debugf("Router starting on port %s", port)
+	this.router.Run(port)
 }

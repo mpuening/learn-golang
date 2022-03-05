@@ -6,6 +6,8 @@ import (
 	actuatorpresentation "learn-golang/internal/actuator/presentation"
 	actuatorusecase "learn-golang/internal/actuator/usecase"
 
+	logger "learn-golang/internal/logger"
+
 	web "learn-golang/internal/web"
 )
 
@@ -16,10 +18,14 @@ var (
 	buildtime string
 )
 
+var LOG *logger.Logger = logger.NewLogger("main")
+
 func main() {
 	var port int
 	var frontEndDistDir string
 	initFlags(&port, &frontEndDistDir)
+
+	LOG.Info("Server starting...")
 
 	runWebServer(port, frontEndDistDir)
 }

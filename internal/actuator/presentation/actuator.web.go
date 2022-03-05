@@ -56,7 +56,6 @@ type ActuatorWeb struct {
 }
 
 func (this ActuatorWeb) info() (entity.Info, error) {
-	// TODO: add error handling to interface
 	return this.usecase.GetInfo()
 }
 
