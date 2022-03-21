@@ -125,6 +125,14 @@ code is laid out and how third party code is managed. Now it is a
 manner of learning the fine points of the language and what third
 party libraries make one more productive.
 
+Version 1.18
+============
+When upgrading to Go version 1.18, I had to run this command manually:
+
+```
+go get -u golang.org/x/sys
+```
+
 Front End UI
 ============
 A simple Vue.js front end UI is provided in the `frontend` directory.

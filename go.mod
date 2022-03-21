@@ -1,6 +1,6 @@
 module learn-golang
 
-go 1.17
+go 1.18
 
 require (
 	github.com/Valiben/gin_unit_test v0.0.0-20181205064931-674aee46d090
@@ -24,6 +24,6 @@ require (
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/ugorji/go/codec v1.1.7 // indirect
 	golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9 // indirect
-	golang.org/x/sys v0.0.0-20200116001909-b77594299b42 // indirect
+	golang.org/x/sys v0.0.0-20220319134239-a9b59b0215f8 // indirect
 	gopkg.in/yaml.v2 v2.2.8 // indirect
 )
