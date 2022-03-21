@@ -14,6 +14,8 @@ func TestLogger(t *testing.T) {
 	LOG.Infof("Info message %d", 2)
 	LOG.Warn("Warn message 1")
 	LOG.Warnf("Warn message %d", 2)
-	LOG.Fatal("Warn message 1")
-	LOG.Fatalf("Warn message %d", 2)
+	LOG.Error("Error message 1")
+	LOG.Errorf("Error message %d", 2)
+	LOG.Fatal("Fatal message 1")
+	LOG.Fatalf("Fatal message %d", 2)
 }

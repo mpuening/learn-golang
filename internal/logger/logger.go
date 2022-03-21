@@ -9,6 +9,7 @@ type Logger struct {
 	debug *log.Logger
 	info  *log.Logger
 	warn  *log.Logger
+	error *log.Logger
 	fatal *log.Logger
 }
 
@@ -17,6 +18,7 @@ func NewLogger(prefix string) *Logger {
 		debug: log.New(os.Stdout, "DEBUG["+prefix+"] ", log.Ldate|log.Ltime|log.Lmicroseconds),
 		info:  log.New(os.Stdout, "INFO["+prefix+"] ", log.Ldate|log.Ltime|log.Lmicroseconds),
 		warn:  log.New(os.Stdout, "WARN["+prefix+"] ", log.Ldate|log.Ltime|log.Lmicroseconds),
+		error: log.New(os.Stdout, "ERROR["+prefix+"] ", log.Ldate|log.Ltime|log.Lmicroseconds),
 		fatal: log.New(os.Stdout, "FATAL["+prefix+"] ", log.Ldate|log.Ltime|log.Lmicroseconds),
 	}
 }
@@ -43,6 +45,14 @@ func (this *Logger) Warn(args ...interface{}) {
 
 func (this *Logger) Warnf(format string, args ...interface{}) {
 	this.warn.Printf(format, args...)
+}
+
+func (this *Logger) Error(args ...interface{}) {
+	this.error.Println(args...)
+}
+
+func (this *Logger) Errorf(format string, args ...interface{}) {
+	this.error.Printf(format, args...)
 }
 
 func (this *Logger) Fatal(args ...interface{}) {
