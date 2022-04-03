@@ -151,3 +151,15 @@ To run the docker image, run this command:
 ```
 sudo docker run -d -p 8080:8080 learn-golang
 ```
+
+Interesting Language Quirks (from a Java Developer Perspective)
+===========================
+
+Methods *receivers* can either be on the struct/value (object) or pointer. One
+should be careful about making a modification within a struct/value method and
+expecting to see that modification reflected after the method returns. I refactored
+code in thid project to prefer pointer receivers.
+
+Pointers to interfaces are different types than pointers to structs. Pointers to
+interfaces are not encouraged, as thesy are less useful.
+

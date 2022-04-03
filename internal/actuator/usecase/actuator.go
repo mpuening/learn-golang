@@ -13,10 +13,10 @@ type Actuator struct {
 	BuildTime string
 }
 
-func (this Actuator) GetInfo() (entity.Info, error) {
+func (this *Actuator) GetInfo() (entity.Info, error) {
 	return entity.Info{Version: this.Version, Build: this.Build, BuildTime: this.BuildTime}, nil
 }
 
-func (this Actuator) GetHealth() (entity.Health, error) {
+func (this *Actuator) GetHealth() (entity.Health, error) {
 	return entity.Health{Up: true}, nil
 }

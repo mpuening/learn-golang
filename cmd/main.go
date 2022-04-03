@@ -44,7 +44,7 @@ func runWebServer(port int, frontEndDistDir string) {
 
 	actuatorpresentation.ActuatorWebBuilder{
 		API: web.API(),
-		UseCase: actuatorusecase.Actuator{
+		UseCase: &actuatorusecase.Actuator{
 			Version:   version,
 			Build:     build,
 			BuildTime: buildtime,

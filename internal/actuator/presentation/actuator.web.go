@@ -12,12 +12,12 @@ import (
 //
 type ActuatorWebBuilder struct {
 	API     *gin.RouterGroup
-	UseCase usecase.Actuator
+	UseCase *usecase.Actuator
 }
 
-func (this ActuatorWebBuilder) Build() ActuatorPresenter {
+func (this ActuatorWebBuilder) Build() *ActuatorWeb {
 	// TODO: Validate builder fields
-	var presentation = ActuatorWeb{
+	presentation := &ActuatorWeb{
 		usecase: this.UseCase,
 	}
 	this.API.GET("/info", func(c *gin.Context) {
@@ -42,7 +42,7 @@ func (this ActuatorWebBuilder) Build() ActuatorPresenter {
 			renderError(c, err)
 		}
 	})
-	return ActuatorWeb{}
+	return presentation
 }
 
 func renderError(c *gin.Context, err error) {
@@ -52,14 +52,14 @@ func renderError(c *gin.Context, err error) {
 }
 
 type ActuatorWeb struct {
-	usecase usecase.Actuator
+	usecase *usecase.Actuator
 }
 
-func (this ActuatorWeb) info() (entity.Info, error) {
+func (this *ActuatorWeb) info() (entity.Info, error) {
 	return this.usecase.GetInfo()
 }
 
-func (this ActuatorWeb) health() (entity.Health, error) {
+func (this *ActuatorWeb) health() (entity.Health, error) {
 	return this.usecase.GetHealth()
 
 }

@@ -17,7 +17,7 @@ type WebBuilder struct {
 	FrontEndDistDir string
 }
 
-func (this WebBuilder) Build() Web {
+func (this WebBuilder) Build() *Web {
 	// TODO: validate Port and Dist Dir
 
 	if this.Mode == "" {
@@ -31,7 +31,7 @@ func (this WebBuilder) Build() Web {
 
 	api := router.Group("/api")
 
-	return Web{router, api, this.Port}
+	return &Web{router, api, this.Port}
 }
 
 type Web struct {
@@ -40,15 +40,15 @@ type Web struct {
 	port   int
 }
 
-func (this Web) Router() *gin.Engine {
+func (this *Web) Router() *gin.Engine {
 	return this.router
 }
 
-func (this Web) API() *gin.RouterGroup {
+func (this *Web) API() *gin.RouterGroup {
 	return this.api
 }
 
-func (this Web) Run() {
+func (this *Web) Run() {
 	port := ":" + strconv.Itoa(this.port)
 	LOG.Debugf("Router starting on port %s", port)
 	this.router.Run(port)

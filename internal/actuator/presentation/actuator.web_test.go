@@ -23,7 +23,7 @@ func TestActuator(t *testing.T) {
 
 	ActuatorWebBuilder{
 		API: web.API(),
-		UseCase: usecase.Actuator{
+		UseCase: &usecase.Actuator{
 			Version:   "0.0.0",
 			Build:     "abc1234",
 			BuildTime: "today",
